@@ -1,6 +1,10 @@
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField, PasswordChangeForm
 from django import forms
 from django.contrib.auth.models import User
+
+class LoginForm(AuthenticationForm):
+    username = UsernameField()
+    password  = forms.CharField()
 
 class CustomerRegistrationForm(UserCreationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'autofocus ':'True', "class":"form-control"}))
@@ -11,3 +15,6 @@ class CustomerRegistrationForm(UserCreationForm):
     class meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
+
+class MyPasswordResetForm(PasswordChangeForm):
+    pass
