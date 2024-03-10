@@ -5,3 +5,8 @@ from .models import *
 @admin.register(Product)
 class ProductModelAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'discounted_price', 'category']
+
+
+@admin.register(Customer)
+class CustomerModelAdmin(admin.ModelAdmin):
+    list_display=['id', 'user', 'locality', 'city', 'state', 'zipcode']
