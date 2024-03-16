@@ -65,13 +65,15 @@
                     data-bs-toggle="dropdown" aria-expanded="false">Pawan</a>
                     <ul class="dropdown-menu" aria-labelledby="profileDropdown">
                         <li><a href="{% url 'profile'%}" class="dropdown-item">Profile</a></li>
-                        <li><a href="#" class="dropdown-item">Orders</a></li>
+                        <li><a href="{% url 'orders' %}" class="dropdown-item">Orders</a></li>
                         <li><a href="{% url 'passwordchange'%}" class="dropdown-item">Change Password</a></li>
                         <li><a href="{% url 'logout'%}" class="dropdown-item">Logout</a></li>
                     </ul>
                 </li>
                 <li class="nav-item mx-2">
-                    <a href="{% url 'showcart' %}" class="nav-link text-white">Cart 4</a>
+                    <a href="{% url 'showcart' %}" class="nav-link text-white"><span class="badge-bg-danger">
+                      {% if totalitem > 0 %} {{totalitem}} {% endif %}
+                    </span>Cart</a>
                 </li>
                 <li class="nav-item mx-2">
                     <a href="#" class="nav-link text-white">Wishlist 4</a>
