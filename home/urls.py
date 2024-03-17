@@ -4,6 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_view
 from .forms import LoginForm, MyPasswordResetForm, MyPasswordChangeForm, MySetPasswordForm
+from django.contrib import admin
 
 urlpatterns = [
     path("",views.home, name="home"),
@@ -48,6 +49,7 @@ urlpatterns = [
     # wishlist function
     path('pluswishlist/', views.plus_wishlist),
     path('minuswishlist/', views.minus_wishlist),
+    path('wishlist/', views.show_wishlist, name='showwishlist'),
 
     # payment function
     path('checkout/', views.checkout.as_view(), name='checkout'),
@@ -57,3 +59,7 @@ urlpatterns = [
     # search function
     path('search/', views.search, name='search'),
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+admin.site.site_header = 'Symbieat'
+admin.site.site_title = 'Symbieat'
+admin.site.site_index_title = 'Welcome to Symbieat'
