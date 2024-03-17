@@ -85,3 +85,13 @@ class OrderPlaced(models.Model):
 class Wishlist(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=80)
+    email = models.EmailField()
+    subject = models.CharField(max_length=80)
+    message = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.name

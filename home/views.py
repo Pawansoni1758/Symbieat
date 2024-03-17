@@ -32,6 +32,20 @@ def about(request):
 
 @login_required
 def contact(request):
+    if request.method == "POST":
+        data = request.POST
+        name = data.get('your_name')
+        email = data.get('your_email')
+        subject = data.get('subject')
+        message = data.get('message')
+
+        Contact.objects.create(
+            name=name,
+            email=email,
+            subject=subject,
+            message=message
+        )
+        return redirect('/contact/')
     totalitem = 0
     wishitem = 0
     if request.user.is_authenticated:
@@ -316,7 +330,7 @@ def remove_cart(request):
         }
         return JsonResponse(data)   
 
-@login_required   
+   
 def plus_wishlist(request):
     if request.method == 'GET':
         prod_id = request.GET['prod_id']
@@ -328,7 +342,7 @@ def plus_wishlist(request):
         }
         return JsonResponse(data)
 
-@login_required 
+
 def minus_wishlist(request):
     if request.method == 'GET':
         prod_id = request.GET['prod_id']

@@ -26,3 +26,5 @@ class OrderPlacedModelAdmin(admin.ModelAdmin):
 @admin.register(Wishlist)
 class WishlistModelAdmin(admin.ModelAdmin):
     list_display = ['id', 'user', 'product']
+
+admin.site.register(Contact)
