@@ -45,6 +45,10 @@ urlpatterns = [
     path('minuscart/', views.minus_cart),
     path('removecart/', views.remove_cart),
 
+    # wishlist function
+    path('pluswishlist/', views.plus_wishlist),
+    path('minuswishlist/', views.minus_wishlist),
+
     # payment function
     path('checkout/', views.checkout.as_view(), name='checkout'),
     path('paymentdone/', views.payment_done, name='paymentdone'),
