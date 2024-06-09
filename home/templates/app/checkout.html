@@ -71,7 +71,8 @@
         'handler':function(response){
             console.log("success")
             var form = document.getElementById('myform');
-            window.location.href="http://localhost:8000/paymentdone?order_id=${response.razorpay_order_id}&payment_id=$(response.azorpay_payment_id)&cust_id=${form.elements['custid'].value}"
+            // window.location.href="http://localhost:8000/paymentDone?order_id=${response.razorpay_order_id}&payment_id=$(response.razorpay_payment_id)&cust_id=${form.elements['custid'].value}"
+            window.location.href="http://localhost:8000/orders"
         },
         'theme': {
             'color':'#3399cc'
